@@ -20,8 +20,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: rgb(0, 0, 0, 0.2);
-    padding: 50px;
+    background: #262833;
+    padding-bottom: 20px;
   }
 
   h1, h2, h3, h4, h5, h6, strong {

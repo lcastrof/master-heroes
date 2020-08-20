@@ -1,25 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 // import { Container } from './styles';
 
-// interface Hero {
-//   id: number;
-//   name: string;
-//   images: {
-//     md: string;
-//   };
-// }
+interface EndScreenParams {
+  points: number;
+}
 
-// interface Props {
-//   heroes: Array<Hero>;
-// }
+const EndScreen: React.FC = () => {
+  const location = useLocation<EndScreenParams>();
 
-const Start: React.FC = () => {
   return (
     <>
-      <h1>EndScreen</h1>
+      <h1>{location.state.points}</h1>
     </>
   );
 };
 
-export default Start;
+export default EndScreen;

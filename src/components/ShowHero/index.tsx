@@ -6,7 +6,7 @@ interface Props {
   names: string[];
   correctName: string;
   image: string;
-  handleClick(): void;
+  handleClick(name: string): void;
 }
 
 const ShowHero: React.FC<Props> = ({
@@ -30,7 +30,7 @@ const ShowHero: React.FC<Props> = ({
           <button
             type="button"
             className={name === correctName ? 'isWright' : 'isWrong'}
-            onClick={() => handleClick()}
+            onClick={() => handleClick(name)}
             key={name}
           >
             {name}

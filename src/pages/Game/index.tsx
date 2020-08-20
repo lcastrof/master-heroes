@@ -7,6 +7,7 @@ import api from '../../services/api';
 
 import { Container } from './styles';
 import ShowHero from '../../components/ShowHero';
+import Header from '../../components/Header';
 
 interface Hero {
   id: number;
@@ -26,8 +27,11 @@ const Game: React.FC = () => {
     },
   } as Hero);
   const [randomHeroes, setRandomHeroes] = useState<Array<string>>([]);
+
   const [names, setNames] = useState<Array<string>>([]);
   const [counter, setCounter] = useState(1);
+
+  const [points, setPoints] = useState(0);
 
   const history = useHistory();
 
@@ -57,22 +61,30 @@ const Game: React.FC = () => {
     loadHeroes();
   }, []);
 
-  const handleClick = useCallback(() => {
-    if (counter === settings.total_heroes_cards) {
-      setCounter(0);
-      history.push('/gameover');
-    }
+  const handleClick = useCallback(
+    (clickedName: string) => {
+      if (counter === settings.total_heroes_cards) {
+        setCounter(0);
+        history.push('/gameover', { points });
+      }
 
-    setSelectedHero(heroes[counter]);
+      if (clickedName === selectedHero.name) {
+        setPoints(previousPoints => previousPoints + 20);
+      }
 
-    setCounter(prevValue => prevValue + 1);
+      setSelectedHero(heroes[counter]);
 
-    const newNames = randomHeroes.splice(0, 2);
-    setNames([...newNames]);
-  }, [counter, heroes, history, randomHeroes]);
+      setCounter(prevValue => prevValue + 1);
+
+      const newNames = randomHeroes.splice(0, 2);
+      setNames([...newNames]);
+    },
+    [counter, heroes, history, points, randomHeroes, selectedHero.name],
+  );
 
   return (
     <Container>
+      <Header />
       <ShowHero
         names={[selectedHero.name, ...names]}
         correctName={selectedHero.name}

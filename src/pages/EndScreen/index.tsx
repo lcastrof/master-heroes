@@ -1,8 +1,12 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+import { animated, useSpring } from 'react-spring';
+
+import { FiPlay } from 'react-icons/fi';
 import gameSettings from '../../config/gameSettings';
 
-// import { Container } from './styles';
+import { Container, Content, Percentage } from './styles';
 
 interface EndScreenParams {
   points: number;
@@ -14,14 +18,33 @@ const EndScreen: React.FC = () => {
   const playerPoints = location.state.points;
   const totalPossiblePoints = gameSettings.total_heroes_cards * 20;
 
+  const successPercentage = (playerPoints / totalPossiblePoints) * 100;
+
+  const props = useSpring({
+    number: successPercentage,
+    from: { number: 0 },
+    config: { duration: 1000 },
+  });
+
   return (
-    <>
-      <h1>
-        {`${playerPoints} / ${totalPossiblePoints} = ${
-          (playerPoints / totalPossiblePoints) * 100
-        }%`}
-      </h1>
-    </>
+    <Container>
+      <Content>
+        <h1>Success rate:</h1>
+        <Percentage>
+          <animated.span>
+            {props.number.interpolate(number => Math.floor(number))}
+          </animated.span>
+          <span>%</span>
+        </Percentage>
+
+        <h1>Points:</h1>
+        <span>{`${playerPoints} / ${totalPossiblePoints}`}</span>
+        <Link to="/game">
+          <FiPlay />
+          Play Again
+        </Link>
+      </Content>
+    </Container>
   );
 };
 

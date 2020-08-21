@@ -65,10 +65,13 @@ const Game: React.FC = () => {
     (clickedName: string) => {
       if (counter === settings.total_heroes_cards) {
         setCounter(0);
-        history.push('/gameover', { points });
+        history.push('/gameover', {
+          points: clickedName === selectedHero.name ? points + 20 : points,
+        });
       }
 
       if (clickedName === selectedHero.name) {
+        console.log('oi');
         setPoints(previousPoints => previousPoints + 20);
       }
 

@@ -13,7 +13,7 @@ const Welcome: React.FC = () => {
       <Content>
         <img src={heroImg} alt="heroes" />
         <h1>Welcome!</h1>
-        <h2>Superheroes are cool, wright?</h2>
+        <h2>Superheroes are cool, right?</h2>
         <h2>
           But can you guess any hero or vilan in comics and movies by looking at
           one image? Lets find out.

@@ -15,6 +15,8 @@ export const Container = styled.div`
   img {
     border-radius: 3px;
     box-shadow: 0 4px 8px #00000029;
+    width: 320px;
+    height: 480px;
   }
 
   button {

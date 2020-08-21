@@ -16,20 +16,25 @@ const ShowHero: React.FC<Props> = ({
   handleClick,
 }) => {
   const [shuffledNames, setShuffledNames] = useState<Array<string>>([]);
+  const [correct, setCorrect] = useState('');
 
   useEffect(() => {
-    names.sort(() => 0.5 - Math.random());
-    setShuffledNames([...names]);
-  }, [names]);
+    setTimeout(() => {
+      names.sort(() => 0.5 - Math.random());
+
+      setShuffledNames([...names]);
+      setCorrect(correctName);
+    }, 500);
+  }, [correctName, names]);
 
   return (
     <Container>
-      <img src={image} alt="hero" />
+      {image && <img src={image} alt="hero" />}
       {shuffledNames.map(name => {
         return (
           <button
             type="button"
-            className={name === correctName ? 'isWright' : 'isWrong'}
+            className={name === correct ? 'isWright' : 'isWrong'}
             onClick={() => handleClick(name)}
             key={name}
           >

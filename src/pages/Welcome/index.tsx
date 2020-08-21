@@ -13,9 +13,10 @@ const Welcome: React.FC = () => {
       <Content>
         <img src={heroImg} alt="heroes" />
         <h1>Welcome!</h1>
+        <h2>Superheroes are cool, wright?</h2>
         <h2>
-          Superheroes are cool, wright? But can you guess any hero or vilan in
-          comics and movies by looking at one image? Lets find out.
+          But can you guess any hero or vilan in comics and movies by looking at
+          one image? Lets find out.
         </h2>
         <div className="playButton">
           <Link to="/game">

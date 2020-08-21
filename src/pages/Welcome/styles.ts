@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   max-width: 1000px;
@@ -8,6 +19,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 20px;
   margin: 0 auto;
+  animation: ${fadeIn} 2s;
 `;
 
 export const Content = styled.div`

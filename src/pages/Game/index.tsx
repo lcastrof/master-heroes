@@ -71,7 +71,6 @@ const Game: React.FC = () => {
       }
 
       if (clickedName === selectedHero.name) {
-        console.log('oi');
         setPoints(previousPoints => previousPoints + 20);
       }
 

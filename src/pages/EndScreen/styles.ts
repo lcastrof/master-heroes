@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   max-width: 1000px;
@@ -8,18 +19,13 @@ export const Container = styled.div`
   align-items: center;
   padding: 20px;
   margin: 0 auto;
+  animation: ${fadeIn} 2s;
 `;
 
 export const Content = styled.div`
   width: 100%;
   height: calc(100vh - 50px);
-  background: linear-gradient(
-    to top,
-    var(--secondary),
-    var(--primary),
-    var(--primary),
-    #1b6894
-  );
+  background: linear-gradient(to top, var(--secondary), var(--primary));
   border-radius: 10px;
   box-shadow: 0 4px 8px #00000029;
   padding: 50px;
@@ -33,6 +39,7 @@ export const Content = styled.div`
     margin-bottom: 40px;
 
     color: var(--tertiary);
+    text-shadow: 0 4px 8px #00000029;
 
     &:first-child {
       color: var(--success);
@@ -42,13 +49,14 @@ export const Content = styled.div`
   span {
     font-size: 80px;
     color: var(--quaternary);
+    text-shadow: 0 4px 8px #00000029;
   }
 
   a {
     margin-top: 40px;
     background: var(--primary);
     text-decoration: none;
-    width: 50%;
+    width: 60%;
 
     display: flex;
     align-items: center;
@@ -73,6 +81,16 @@ export const Content = styled.div`
       opacity: 0.8;
 
       color: var(--quaternary);
+    }
+  }
+
+  @media (max-width: 570px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    span {
+      font-size: 30px;
     }
   }
 `;

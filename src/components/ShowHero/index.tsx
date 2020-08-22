@@ -34,7 +34,7 @@ const ShowHero: React.FC<Props> = ({
         return (
           <button
             type="button"
-            className={name === correct ? 'isWright' : 'isWrong'}
+            className={name === correct ? 'isRight' : 'isWrong'}
             onClick={() => handleClick(name)}
             key={name}
           >

@@ -42,7 +42,7 @@ export const Container = styled.div`
         background: var(--error);
       }
 
-      &.isWright {
+      &.isRight {
         background: var(--success);
       }
     }

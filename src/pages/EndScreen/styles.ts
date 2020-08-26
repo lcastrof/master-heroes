@@ -75,6 +75,7 @@ export const Content = styled.div`
 
     > svg {
       margin-right: 10px;
+      flex-shrink: 0;
     }
 
     &:hover {

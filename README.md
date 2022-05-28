@@ -16,7 +16,7 @@
 <p>It is a simple game where you need to guess heroes based on an image.</p>
 
 ## 🚀 Deploy
-You can access the aplication following this link: https://lucid-payne-8b8c2f.netlify.app/
+You can access the aplication following this link: https://musing-brown-278c13.netlify.app/
 
 ## 📑 Technologies
 * [ReactJS](https://pt-br.reactjs.org/)
